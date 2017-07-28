@@ -1,18 +1,16 @@
-includes: ['layer:basic', 'layer:apt']
+includes: ['layer:basic', 'layer:apt', 'layer:snap']
 options:
   apt:
     packages:
-      - 'juju'
-      - 'juju-core'
-      - 'juju-deployer'
       - 'git'
       - 'python-yaml'
       - 'python-jujuclient'
-      - 'charm-tools'
-  basic:
-    packages:
       - "python-pip"
       - "tree"
       - "python-dev"
       - "unzip"
       - "make"
+  snap:
+    juju:
+      channel: stable
+      classic: true

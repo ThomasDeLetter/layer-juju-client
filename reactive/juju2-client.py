@@ -33,8 +33,10 @@ HOME = expanduser('~{}'.format(USER))
 
 
 @when_not('juju.installed')
-@when('apt.installed.juju')
+@when('apt.installed.make')
 def set_juju_installed_state():
+    # Allows the use of the juju cli command in new sessions
+    check_call(['ln', '-s', '/snap/bin/juju', '/usr/bin/juju'])
     # Run juju once to generate initial config
     check_call([
         'su', USER, '-c',
