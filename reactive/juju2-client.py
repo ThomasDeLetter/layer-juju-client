@@ -33,7 +33,7 @@ HOME = expanduser('~{}'.format(USER))
 
 
 @when_not('juju.installed')
-@when('apt.installed.make')
+@when('snap.installed.juju')
 def set_juju_installed_state():
     # Allows the use of the juju cli command in new sessions
     check_call(['ln', '-s', '/snap/bin/juju', '/usr/bin/juju'])
