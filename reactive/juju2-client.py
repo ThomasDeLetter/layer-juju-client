@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # pylint: disable=C0111,C0103,c0325
 from base64 import b64decode
-from subprocess import check_call
+from subprocess import call, check_call
 from os.path import expanduser
 
 # Charm pip dependencies
@@ -36,7 +36,7 @@ HOME = expanduser('~{}'.format(USER))
 @when('snap.installed.juju')
 def set_juju_installed_state():
     # Allows the use of the juju cli command in new sessions
-    check_call(['ln', '-s', '/snap/bin/juju', '/usr/bin/juju'])
+    call(['ln', '-s', '/snap/bin/juju', '/usr/bin/juju'])
     # Run juju once to generate initial config
     check_call([
         'su', USER, '-c',
