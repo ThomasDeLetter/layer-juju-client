@@ -45,7 +45,7 @@ def set_juju_installed_state():
 
 
 @when('juju.installed')
-@when('config.changed.credentials.yaml')
+@when('config.changed.credentials_yaml')
 def import_credentials():
     credentials_file = "{}/.local/share/juju/credentials.yaml".format(HOME)
     data = config()['credentials_yaml']
@@ -56,7 +56,7 @@ def import_credentials():
 
 
 @when('juju.installed')
-@when('config.changed.controllers.yaml')
+@when('config.changed.controllers_yaml')
 def import_controllers():
     controllers_file = "{}/.local/share/juju/controllers.yaml".format(HOME)
     data = config()['controllers_yaml']
@@ -67,7 +67,7 @@ def import_controllers():
 
 
 @when('juju.installed')
-@when('config.changed.clouds.yaml')
+@when('config.changed.clouds_yaml')
 def import_clouds():
     clouds_file = "{}/.local/share/juju/clouds.yaml".format(HOME)
     data = config()['clouds_yaml']
