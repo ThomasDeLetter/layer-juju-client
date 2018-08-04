@@ -14,11 +14,11 @@ options:
     default: ''
     description: |
       base64 encoded contents of ~/.local/share/juju/controllers.yaml
-  credentials_yaml:
+  accounts_yaml:
     type: string
     default: ''
     description: |
-      base64 encoded contents of ~/.local/share/juju/credentials.yaml
+      base64 encoded contents of ~/.local/share/juju/accounts.yaml
   clouds_yaml:
     type: string
     default: ''

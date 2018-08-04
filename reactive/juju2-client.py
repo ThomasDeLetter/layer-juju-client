@@ -22,7 +22,6 @@ from os.path import expanduser
 # Charm pip dependencies
 import yaml
 
-
 from charmhelpers.core.hookenv import (
     config,
 )
@@ -45,14 +44,14 @@ def set_juju_installed_state():
 
 
 @when('juju.installed')
-@when('config.changed.credentials_yaml')
-def import_credentials():
-    credentials_file = "{}/.local/share/juju/credentials.yaml".format(HOME)
-    data = config()['credentials_yaml']
+@when('config.changed.accounts_yaml')
+def import_accounts():
+    accounts_file = "{}/.local/share/juju/accounts.yaml".format(HOME)
+    data = config()['accounts_yaml']
     if data != '':
-        credentials = yaml.load(b64decode(data))
-        merge_yaml_file_and_dict(credentials_file, credentials)
-    set_state('juju.credentials.available')
+        accounts = yaml.load(b64decode(data))
+        merge_yaml_file_and_dict(accounts_file, accounts)
+    set_state('juju.accounts.available')
 
 
 @when('juju.installed')
