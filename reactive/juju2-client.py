@@ -66,14 +66,14 @@ def import_controllers():
 
 
 @when('juju.installed')
-@when('config.changed.clouds_yaml')
-def import_clouds():
-    clouds_file = "{}/.local/share/juju/clouds.yaml".format(HOME)
-    data = config()['clouds_yaml']
+@when('config.changed.models_yaml')
+def import_models():
+    models_file = "{}/.local/share/juju/models.yaml".format(HOME)
+    data = config()['models_yaml']
     if data != '':
-        clouds = yaml.load(b64decode(data))
-        merge_yaml_file_and_dict(clouds_file, clouds)
-    set_state('juju.cloud.available')
+        models = yaml.load(b64decode(data))
+        merge_yaml_file_and_dict(models_file, models)
+    set_state('juju.model.available')
 
 
 def merge_yaml_file_and_dict(filepath, datadict):

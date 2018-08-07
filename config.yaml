@@ -19,8 +19,8 @@ options:
     default: ''
     description: |
       base64 encoded contents of ~/.local/share/juju/accounts.yaml
-  clouds_yaml:
+  models_yaml:
     type: string
     default: ''
     description: |
-      base64 encoded contents of ~/.local/share/juju/clouds.yaml
+      base64 encoded contents of ~/.local/share/juju/models.yaml
